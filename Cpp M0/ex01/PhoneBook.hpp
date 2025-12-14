@@ -25,6 +25,6 @@ void    ExpandIndex(Contact con);
 long    S_cLong(std::string input);
 int	    print_able(std::string input);
 int     Repositories(PhoneBook phone);
-int     Contact_Ops(Contact& con, PhoneBook& phone);
+int     Contact_Ops(Contact con, PhoneBook& phone);
 
 #endif

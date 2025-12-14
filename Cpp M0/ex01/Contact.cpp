@@ -33,12 +33,3 @@ std::string     Contact::getPhoneNumber(){
 std::string     Contact::getDarkSecret(){
     return (dark_sec);
 }
-
-// Re_Init
-void    Contact::reInitializator(void){
-    f_name = "";
-    l_name = "";
-    n_name = "";
-    phone_nbr = "";
-    dark_sec = "";
-}

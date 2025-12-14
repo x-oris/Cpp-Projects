@@ -30,13 +30,8 @@ int main(int argc, char **argv)
 			return (std::cout << "\033[31mContact Store Closed\033[0m" << std::endl, 0);
 		else if (!input.compare(ADD) && !Contact_Ops(Con, Phone))
 			return (std::cout << "Contact Store Closed" << std::endl, 1);
-		else if (!input.compare(SEARCH) && !Repositories(Phone)){
+		else if (!input.compare(SEARCH) && !Repositories(Phone))
 			return (std::cout << "Contact Store Closed" << std::endl, 1);
-		}
 	}
 	return 0;
 }
-
-/*
-	add EXIT command to the Searching STATE...
-*/

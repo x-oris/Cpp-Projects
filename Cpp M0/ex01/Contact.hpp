@@ -6,10 +6,12 @@
 
 # define MAX_CONTACTS 8
 
+# define All 1
+# define TRUE 11
 # define ADD "ADD"
 # define EXIT "EXIT"
+# define PhoneNumber 0
 # define SEARCH "SEARCH"
-# define TRUE 11
 
 class Contact
 {
@@ -32,8 +34,6 @@ class Contact
         std::string    getNickName(void);
         std::string    getPhoneNumber(void);
         std::string    getDarkSecret(void);
-    // Re_Init
-        void    reInitializator(void);
 };
 
 #endif

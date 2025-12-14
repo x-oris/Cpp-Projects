@@ -11,7 +11,7 @@ int main(int argc, char **argv)
         for (int y = 0; argv[x][y]; y++)
         {
             if (islower(argv[x][y]))
-                argv[x][y] = argv[x][y] - 32;
+                argv[x][y] = toupper(argv[x][y]);
         }
         std::cout << argv[x];
     }

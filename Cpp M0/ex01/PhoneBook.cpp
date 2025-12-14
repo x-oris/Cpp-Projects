@@ -23,8 +23,7 @@ void    PhoneBook::setRollsNumber(long roll){
 Contact PhoneBook::getContact(long ind){
     return (Con[ind]);
 }
-long    PhoneBook::getMaxIndex()
-{
+long    PhoneBook::getMaxIndex(){
     return (Max_Index);
 }
 long    PhoneBook::getRollsNumber(){
