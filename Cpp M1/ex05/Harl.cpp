@@ -21,18 +21,24 @@ void Harl::complain(std::string level)
 {
     Harl obj;
     int index = 0;
-    std::string levels[5] = {"DEBUG", "INFO", "WARNING", "ERROR", "NOTHING"};
-    void (Harl::*functions[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-    void (Harl::*ptr)();
-    
+    std::string levels[5] = {
+        "DEBUG", "INFO",
+        "WARNING", "ERROR",
+        "NOTHING"
+    };
+    void (Harl::*functions[])() = {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error
+    };
     while (index < 5){
         if (!levels[index].compare(level))
             break ;
         index++;
     }
     if (index == 5){
-        std::cerr << "Error: The provided level is not available..." << std::endl;
+        std::cout << "Error: The provided level is not available..." << std::endl;
         return ;
     }
     (obj.*functions[index])();

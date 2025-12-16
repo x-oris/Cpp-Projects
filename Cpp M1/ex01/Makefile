@@ -1,6 +1,6 @@
 CC = c++
 CFLAG = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Zombie.cpp
+SRC = main.cpp Zombie.cpp zombieHorde.cpp
 HEADER = Zombie.hpp
 NAME = MoreBrainz
 OBJ = $(SRC:.cpp=.o)
@@ -10,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAG) $(OBJ) -o $(NAME)
 
-%.o: %.cpp $(HEADER)
+%.o: %.cpp $(HEADER) 
 	$(CC) $(CFLAG) -c $< -o $@
 
 clean:

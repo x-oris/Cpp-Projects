@@ -9,4 +9,6 @@ int main()
     obj.complain("WARNING");
     obj.complain("ERROR");
     obj.complain("XXXXXXX");
+
+    return 0;
 }

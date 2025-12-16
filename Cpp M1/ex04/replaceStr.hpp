@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 class StringReplace
 {
@@ -11,7 +12,7 @@ class StringReplace
         std::string s2;
     public:
         int     takeString(std::string str1, std::string str2);
-        void    findReplace(std::string s1, std::string s2, const char *filename);
+        void    findReplace(const char *filename);
 };
 
 #endif

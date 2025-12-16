@@ -11,5 +11,5 @@ Zombie::Zombie(std::string newname){
 
 // Deconstructor
 Zombie::~Zombie(){
-    std::cout << name << ": Deconstuced..." << std::endl;
+    std::cout << name << ": Deconstructed..." << std::endl;
 }

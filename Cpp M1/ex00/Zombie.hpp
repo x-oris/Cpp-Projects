@@ -11,10 +11,11 @@ class Zombie
         // Constructor
         Zombie(std::string newname);
         void announce(void);
-        static Zombie* newZombie(std::string name);
-        void randomChump(std::string name);
         // Deconstructor
         ~Zombie();
 };
+
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif

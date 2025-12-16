@@ -11,32 +11,40 @@ int StringReplace::takeString(std::string str1, std::string str2)
     return 0;
 }
 
-void StringReplace::findReplace(std::string s1, std::string s2, const char *filename)
+void StringReplace::findReplace(const char *filename)
 {
     std::ifstream infile;
     std::ofstream outfile;
-    
+    std::ostringstream strstream;
+
     infile.open(filename, std::ios::in);
-    if (!infile)
-    {
-        std::cerr << "Error: Failed To Open The File" << std::endl;
+    if (!infile){
+        std::cout << "Error: Failed To Open The File" << std::endl;
         return ;
     }
-    std::string str((std::istreambuf_iterator<char>(infile)), std::istreambuf_iterator<char>());
+    strstream << infile.rdbuf();
+    std::string str = strstream.str();
     size_t pos = str.find(s1);
     if (pos == std::string::npos)
     {
-        std::cerr << "Error: S1 Was Not Found In The File..." << std::endl;
+        std::cout << "Error: S1 String Was Not Found In The File..." << std::endl;
+        infile.close();
         return ;
     }
     while (pos != std::string::npos)
     {
         str.erase(pos, s1.length());
         str.insert(pos, s2);
-        pos = str.find(s1);
+        pos = str.find(s1, pos + s2.length());
     }
     infile.close();
-    outfile.open(filename, std::ios::out);
+    std::string newfile = filename;
+    newfile.append(".replace"); 
+    outfile.open(newfile, std::ios::out);
+    if (!outfile){
+        std::cout << "Error: Opening the outfile <filename>.replace" << std::endl;
+        return ;
+    }
     outfile << str;
     outfile.close();
     std::cout << "StrReplacer: Replacing Is Done..." << std::endl;

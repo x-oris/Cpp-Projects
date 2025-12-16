@@ -1,13 +1,14 @@
 #include "replaceStr.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-    StringReplace Repstr;
-
-    std::string str1 = "HEREIAM";
-    std::string str2 = "NO_AM_NOT";
-    if (Repstr.takeString(str1, str2))
+    if (argc != 4){
+        std::cout << "Error: One of this components is missing: <filename> | String1 | String2..." << std::endl;
         return 1;
-    Repstr.findReplace(str1, str2, "testFiles/test");
+    }
+    StringReplace Repstr;
+    if (Repstr.takeString(argv[2], argv[3]))
+        return 1;
+    Repstr.findReplace(argv[1]);
     return 0;
 }

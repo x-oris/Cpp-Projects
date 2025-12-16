@@ -11,9 +11,10 @@ class Zombie
         // Constructor
         Zombie();
         void announce(void);
-        static Zombie *zombieHorde(int N, std::string name);
+        void nameSet(std::string name);
         // Deconstructor
         ~Zombie();
 };
 
+Zombie *zombieHorde(int N, std::string name);
 #endif
