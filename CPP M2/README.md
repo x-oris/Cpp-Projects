@@ -54,3 +54,41 @@ Prototyped as such: ```MyClass& operator=(const MyClass& other)```.
 
 Notice the **&** in the function return, here in the Assignment operator, we return an already exsiting object, that will be the object we assgined to.
 ****
+
+#### Operator Overloading
+
+Operator Overloading allows us to define a custom behavior for different opertators like : **+ / -  * ==**.
+
+Normally operators work with built in types (int, float...).
+With overloading we can make them work with objects of out class.
+
+Example of overloading (+): (Examples of code are by ChatGPT)
+```
+Point p1(1, 2);
+Point p2(3, 4);
+Point p3 = p1 + p2;
+```
+
+Lets say we have this class
+```
+class Point {
+public:
+    int x, y;
+
+    Point(int x=0, int y=0) : x(x), y(y) {}
+
+    // Example of operator overloading
+    Point operator+(const Point& other) {
+        return Point(x + other.x, y + other.y);
+    }
+};
+```
+
+Once we called ```Points p3 = p1 + p2```.
+our operator overloading method is being called, and **P2** is passed as the other parameter, and to highlight the presence of **P1**, we can change the method return into this
+
+```return Point(this->x + other.x, this->y + other.y);```.
+P1 is held in the **this** operator, this->x & this->y refers to **P1**
+
+then the method returns **Point** object that initialize **P3** which is the sum of x & y of **P1** and **P2**, here we see that we changed the behavior of (+) operator to suit our needs which is summing values of the classes attrubutes instead of doing normal sum of two integers or floating numbers.
+***
