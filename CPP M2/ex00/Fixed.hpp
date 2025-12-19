@@ -3,18 +3,18 @@
 
 #include <iostream>
 
-class fixedNumber
+class Fixed
 {
     private:
         int x;
-        static const int fract = 0;
+        static const int fract = 8;
     public:
-        fixedNumber();
-        fixedNumber(const fixedNumber& other);
-        fixedNumber& operator=(const fixedNumber& other);
-        ~fixedNumber();
-        int getRawbits(void) const;
-        void setRawbits(int const raw);
+        Fixed();
+        Fixed(const Fixed& other);
+        Fixed& operator=(const Fixed& other);
+        ~Fixed();
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
 };
 
 #endif
