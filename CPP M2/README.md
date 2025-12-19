@@ -92,3 +92,5 @@ P1 is held in the **this** operator, this->x & this->y refers to **P1**
 
 then the method returns **Point** object that initialize **P3** which is the sum of x & y of **P1** and **P2**, here we see that we changed the behavior of (+) operator to suit our needs which is summing values of the classes attrubutes instead of doing normal sum of two integers or floating numbers.
 ***
+
+Now we move to Floating Point & Fixed Point concepts.
