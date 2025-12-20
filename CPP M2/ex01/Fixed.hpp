@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <math.h>
 
 class Fixed
 {
@@ -13,14 +14,14 @@ class Fixed
         Fixed(const Fixed& other);
         Fixed& operator=(const Fixed& other);
         ~Fixed();
-        // All these added member need to be checked and verified.
-        Fixed(const int);
-        Fixed(const float);
+        Fixed(const int n);
+        Fixed(const float n);
         int toInt(void) const;
         float toFloat(void) const;
-        // Need to add the overload of << insertion operator.
         int getRawBits(void) const;
         void setRawBits(int const raw);
 };
+
+        std::ostream& operator<<(std::ostream &out, const Fixed& input);
 
 #endif
