@@ -2,20 +2,20 @@
 
 Fixed::Fixed(){
     x = 0;
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed(){
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other){
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other){
-    std::cout << "Copy assignment operator called" << std::endl;
+    // std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
         this->x = other.getRawBits();
     return *this;
@@ -25,7 +25,7 @@ int Fixed::getRawBits(void) const {
     return (x);
 }
 
-void Fixed::setRawBits(int const raw){
+void Fixed::setRawBits(int const raw) {
     x = raw;
 }
 
@@ -39,12 +39,12 @@ int Fixed::toInt() const {
 }
 
 Fixed::Fixed(const int n){
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     x = n << fract;
 }
 
 Fixed::Fixed(const float n){
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     x = roundf(n * 256);
 }
 
@@ -90,39 +90,48 @@ bool Fixed::operator>=(const Fixed& other){
 }
 
 // Arithmetic Operators
-int Fixed::operator+(const Fixed& other){
-    return (this->getRawBits() + other.getRawBits());
+Fixed Fixed::operator+(const Fixed& other){
+    Fixed cl;
+    cl.setRawBits(this->getRawBits() + other.getRawBits());
+    return cl;
 }
 
-int Fixed::operator-(const Fixed& other){
+Fixed Fixed::operator-(const Fixed& other){
     return (this->getRawBits() - other.getRawBits());
 }
 
-int Fixed::operator*(const Fixed& other){
-    return (this->getRawBits() * other.getRawBits());
+Fixed Fixed::operator*(const Fixed& other){
+    Fixed cl(this->toFloat() * other.toFloat());
+    // Fixed cl;
+    // cl.setRawBits(this->toFloat() * other.toFloat());
+    return cl;
 }
 
-int Fixed::operator/(const Fixed& other){
+Fixed Fixed::operator/(const Fixed& other){
     return (this->getRawBits() / other.getRawBits());
 }
 
 // Post/Pre Incre/Decrements
 Fixed& Fixed::operator++(){
-    this->x++;
+    this->x += 1;
     return *this;
 }
 
 Fixed& Fixed::operator--(){
-    this->x++;
+    this->x -= 1;
     return *this;
 }
 
-Fixed& Fixed::operator++(int){
-    ++this->x;
-    return *this;
+Fixed Fixed::operator++(int){
+    Fixed temp(*this);
+
+    this->x += 1;
+    return temp;
 }
 
-Fixed& Fixed::operator--(int){
-    --this->x;
-    return *this;
+Fixed Fixed::operator--(int){
+    Fixed temp(*this);
+
+    this->x -= 1;
+    return temp;
 }

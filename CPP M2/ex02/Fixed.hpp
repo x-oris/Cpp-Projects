@@ -21,15 +21,15 @@ class Fixed
         bool operator<=(const Fixed& other);
         bool operator==(const Fixed& other);
         bool operator!=(const Fixed& other);
-        int operator+(const Fixed& other);
-        int operator-(const Fixed& other);
-        int operator*(const Fixed& other);
-        int operator/(const Fixed& other);
+        Fixed operator+(const Fixed& other);
+        Fixed operator-(const Fixed& other);
+        Fixed operator*(const Fixed& other);
+        Fixed operator/(const Fixed& other);
         // Arithmetic Operators
         Fixed& operator++();
-        Fixed& operator++(int);
+        Fixed operator++(int);
         Fixed& operator--();
-        Fixed& operator--(int);
+        Fixed operator--(int);
         ///////////////////////////////////////
         ~Fixed();
         Fixed(const int n);
