@@ -45,7 +45,8 @@ Fixed::Fixed(const int n){
 
 Fixed::Fixed(const float n){
     // std::cout << "Float constructor called" << std::endl;
-    x = roundf(n * 256);
+    int res = 1 << fract;
+    x = roundf(n * res);
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed& input){
@@ -91,24 +92,19 @@ bool Fixed::operator>=(const Fixed& other){
 
 // Arithmetic Operators
 Fixed Fixed::operator+(const Fixed& other){
-    Fixed cl;
-    cl.setRawBits(this->getRawBits() + other.getRawBits());
-    return cl;
+    return (this->toFloat() + other.toFloat());
 }
 
 Fixed Fixed::operator-(const Fixed& other){
-    return (this->getRawBits() - other.getRawBits());
+    return (this->toFloat() - other.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed& other){
-    Fixed cl(this->toFloat() * other.toFloat());
-    // Fixed cl;
-    // cl.setRawBits(this->toFloat() * other.toFloat());
-    return cl;
+    return (this->toFloat() * other.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed& other){
-    return (this->getRawBits() / other.getRawBits());
+    return (this->toFloat() / other.toFloat());
 }
 
 // Post/Pre Incre/Decrements
@@ -134,4 +130,33 @@ Fixed Fixed::operator--(int){
 
     this->x -= 1;
     return temp;
+}
+
+// Min/Max Functions
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    if (a.getRawBits() < b.getRawBits())
+        return (a);
+    return (b);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    if (a > b)
+        return (a);
+    return (b);
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    if (a.getRawBits() > b.getRawBits())
+        return (a);
+    return (b);
 }
