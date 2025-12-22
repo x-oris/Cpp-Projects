@@ -12,6 +12,7 @@ class Fixed
     public:
         Fixed();
         Fixed(const Fixed& other);
+        ~Fixed();
         //////////////////////////////////////
         // Overloaded Operators
         Fixed& operator=(const Fixed& other);
@@ -31,7 +32,6 @@ class Fixed
         Fixed& operator--();
         Fixed operator--(int);
         ///////////////////////////////////////
-        ~Fixed();
         Fixed(const int n);
         Fixed(const float n);
         int toInt(void) const;
