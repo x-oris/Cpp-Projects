@@ -8,7 +8,8 @@ ClapTrap::~ClapTrap(){
      std::cout << "Destructor called" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& other){
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
     if (this != &other){
         this->setName(other.getName());
         this->sethitPts(other.gethitPts());
@@ -49,12 +50,22 @@ void ClapTrap::attack(const std::string& target)
     std::cout << this->getName() << " attacks " << target << ", causing " << this->getattDmg() << " points of damage !" << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount){
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    unsigned int energy = getengPts() - 1;
+    this->setengPts(energy);
     std::cout << getName() << " is taking " << amount << " of damage !"<< std::endl;
+    std::cout << "Energy lowered by 1Pts !" << std::endl;
+    std::cout << "Current Energy Pts: " << this->getengPts() << std::endl;
     this->sethitPts(this->gethitPts() - amount);
 }
 
-void ClapTrap::beRepaired(unsigned int amount){
+void ClapTrap::beRepaired(unsigned int amount)
+{
+    unsigned int energy = getengPts() - 1;
+    this->setengPts(energy);
     std::cout << getName() << " is healing ! " << amount << "Pts+ !"<< std::endl;
+    std::cout << "Energy lowered by 1Pts !" << std::endl;
+    std::cout << "Current Energy Pts: " << this->getengPts() << std::endl;
     this->sethitPts(this->gethitPts() + amount);
 }
