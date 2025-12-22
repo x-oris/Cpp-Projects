@@ -2,9 +2,8 @@
 
 int main()
 {
-    ClapTrap xoris;
+    ClapTrap xoris("Xoris");
 
-    xoris.setName("Xoris");
     xoris.sethitPts(10);
     xoris.setengPts(10); // how unsigned to negative ?
     xoris.setattDmg(0);
