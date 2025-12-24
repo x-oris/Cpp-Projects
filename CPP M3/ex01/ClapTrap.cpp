@@ -8,12 +8,22 @@ ClapTrap::ClapTrap(std::string name){
     this->attDmg = 0;
 }
 
+ClapTrap::ClapTrap(){
+     std::cout << "Default Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other){
+    std::cout << "Copy Constructor Called" << std::endl;
+    *this = other;
+}
+
 ClapTrap::~ClapTrap(){
      std::cout << "Destructor called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
+    std::cout << "Assignement Operator called" << std::endl;
     if (this != &other){
         this->setName(other.getName());
         this->sethitPts(other.gethitPts());

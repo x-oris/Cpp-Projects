@@ -8,6 +8,15 @@ ClapTrap::ClapTrap(std::string name){
     this->attDmg = 0;
 }
 
+ClapTrap::ClapTrap(){
+     std::cout << "Default Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other){
+    std::cout << "Copy Constructor Called" << std::endl;
+    *this = other;
+}
+
 ClapTrap::~ClapTrap(){
      std::cout << "Destructor called" << std::endl;
 }
@@ -56,15 +65,13 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->gethitPts() > 0 && this->getengPts() > 0)
-    {
-        unsigned int energy = getengPts() - 1;
-        this->setengPts(energy);
-        std::cout << getName() << " is taking " << amount << " of damage !"<< std::endl;
-        std::cout << "Energy lowered by 1Pts !" << std::endl;
-        std::cout << "Current Energy Pts: " << this->getengPts() << std::endl;
-        this->sethitPts(this->gethitPts() - amount);
-    }
+    unsigned int energy = getengPts() - 1;
+    this->setengPts(energy);
+    std::cout << getName() << " is taking " << amount << " of damage !"<< std::endl;
+    std::cout << "Energy lowered by 1Pts !" << std::endl;
+    std::cout << "Current Energy Pts: " << this->getengPts() << std::endl;
+    this->sethitPts(this->gethitPts() - amount);
+
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
