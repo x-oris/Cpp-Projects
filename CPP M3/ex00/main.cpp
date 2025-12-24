@@ -4,12 +4,8 @@ int main()
 {
     ClapTrap xoris("Xoris");
 
-    xoris.sethitPts(10);
-    xoris.setengPts(10); // how unsigned to negative ?
-    xoris.setattDmg(0);
-
     xoris.attack("SomeoneX");
-    xoris.takeDamage(11);
+    xoris.takeDamage(-1);
     xoris.beRepaired(11);
     return 0;
 }

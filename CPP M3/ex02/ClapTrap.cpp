@@ -8,6 +8,19 @@ ClapTrap::ClapTrap(std::string name){
     this->attDmg = 0;
 }
 
+ClapTrap::ClapTrap(){
+    std::cout << "Default Constructor called" << std::endl;
+    this->Name = "Noname";
+    this->hitPts = 10;
+    this->engPts = 10;
+    this->attDmg = 0;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other){
+    std::cout << "Copy Constructor Called" << std::endl;
+    *this = other;
+}
+
 ClapTrap::~ClapTrap(){
      std::cout << "Destructor called" << std::endl;
 }
@@ -51,19 +64,41 @@ void ClapTrap::setengPts(unsigned int engPts){
 
 void ClapTrap::attack(const std::string& target)
 {
-    std::cout << this->getName() << " attacks " << target << ", causing " << this->getattDmg() << " points of damage !" << std::endl;
+    if (this->gethitPts() > 0 && this->getengPts() > 0)
+    {
+        int catcher = this->getengPts();
+        if (catcher - 1 < 0)
+        {
+            std::cout << "Energy Pts are finished" << std::endl;
+            this->setengPts(0);
+        }
+        else
+        {
+            unsigned int energy = this->getengPts() - 1;
+            this->setengPts(energy);
+            std::cout << "Energy lowered by 1Pts !" << std::endl;
+            std::cout << "Current Energy Pts: " << this->getengPts() << std::endl;
+        }
+        std::cout << this->getName() << " attacks " << target << ", causing " << this->getattDmg() << " points of damage !" << std::endl;
+    }
+    else
+        std::cout << "ClapTrap has no hitPts or Energy Pts to perform the action..." << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->gethitPts() > 0 && this->getengPts() > 0)
+    int taker = amount;
+    if (taker > 0)
     {
-        unsigned int energy = getengPts() - 1;
-        this->setengPts(energy);
-        std::cout << getName() << " is taking " << amount << " of damage !"<< std::endl;
-        std::cout << "Energy lowered by 1Pts !" << std::endl;
-        std::cout << "Current Energy Pts: " << this->getengPts() << std::endl;
-        this->sethitPts(this->gethitPts() - amount);
+        std::cout << getName() << " is taking " << taker << " of damage !"<< std::endl;
+        long catcher = this->gethitPts();
+        if (catcher - amount < 0)
+            sethitPts(0);
+        else
+            this->sethitPts(this->gethitPts() - amount);
+    }
+    else {
+        std::cout << "Cannot take negative or zero damages..." << std::endl;
     }
 }
 
@@ -71,11 +106,23 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if (this->gethitPts() > 0 && this->getengPts() > 0)
     {
-        unsigned int energy = getengPts() - 1;
-        this->setengPts(energy);
-        std::cout << getName() << " is healing ! " << amount << "Pts+ !"<< std::endl;
-        std::cout << "Energy lowered by 1Pts !" << std::endl;
+        int catcher = this->getengPts();
+        if (catcher - 1 < 0)
+            this->setengPts(0);
+        else
+        {
+            unsigned int energy = this->getengPts() - 1;
+            this->setengPts(energy);
+            std::cout << "Energy lowered by 1Pts !" << std::endl;
+        }
+        std::cout << getName() << " is healing ! " << std::endl;
         std::cout << "Current Energy Pts: " << this->getengPts() << std::endl;
-        this->sethitPts(this->gethitPts() + amount);
+        unsigned long catcher_v2 = this->gethitPts();
+        if (catcher_v2 + amount >= UINT_MAX)
+            this->sethitPts(1000);
+        else
+            this->sethitPts(this->gethitPts() + amount);
     }
+    else
+        std::cout << "ClapTrap has no hitPts or Energy Pts to perform this action..." << std::endl;
 }
