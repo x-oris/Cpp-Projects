@@ -7,7 +7,6 @@ class ScavTrap: public ClapTrap
 {
     public:
         void guardGate();
-        // Add Canonical attributes...
         ScavTrap(std::string name);
         ScavTrap();
         ScavTrap(const ScavTrap& other);
