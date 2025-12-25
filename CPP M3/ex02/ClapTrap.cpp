@@ -27,6 +27,7 @@ ClapTrap::~ClapTrap(){
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
+    std::cout << "ClapTrap Assignement Operator called" << std::endl;
     if (this != &other){
         this->setName(other.getName());
         this->sethitPts(other.gethitPts());

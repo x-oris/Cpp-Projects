@@ -17,14 +17,17 @@ ScavTrap::ScavTrap(){
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other){
-    std::cout << "Copy Constructor Called" << std::endl;
+    std::cout << "ScavTrap Copy Constructor Called" << std::endl;
     *this = other;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other){
-    std::cout << "Assignement Operator called" << std::endl;
+    std::cout << "ScavTrap Assignement Operator called" << std::endl;
     if (this != &other){
-        *this = other;
+        this->setName(other.getName());
+        this->sethitPts(other.gethitPts());
+        this->setengPts(other.getengPts());
+        this->setattDmg(other.getattDmg());
     }
     return *this;
 }

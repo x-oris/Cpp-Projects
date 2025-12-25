@@ -17,14 +17,17 @@ FragTrap::FragTrap(){
 }
 
 FragTrap::FragTrap(const FragTrap& other){
-    std::cout << "Copy Constructor Called" << std::endl;
+    std::cout << "FragTrap Copy Constructor Called" << std::endl;
     *this = other;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other){
-    std::cout << "Assignement Operator called" << std::endl;
+    std::cout << "FragTrap Assignement Operator called" << std::endl;
     if (this != &other){
-        *this = other;
+        this->setName(other.getName());
+        this->sethitPts(other.gethitPts());
+        this->setengPts(other.getengPts());
+        this->setattDmg(other.getattDmg());
     }
     return *this;
 }
