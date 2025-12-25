@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal(){
+Animal::Animal(): type("Animal") {
     std::cout << "Animal Default Constructor" << std::endl;
 }
 
@@ -28,3 +28,6 @@ std::string Animal::getType() const {
     return (this->type);
 }
 
+void Animal::makesound() const{
+    std::cout << "Animal Making Sound" << std::endl;
+}

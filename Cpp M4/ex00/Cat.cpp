@@ -1,6 +1,7 @@
 #include "Cat.hpp"
 
 Cat::Cat(){
+    type = "Cat";
     std::cout << "Cat Default Constructor" << std::endl;
 }
 
@@ -18,4 +19,8 @@ Cat& Cat::operator=(const Cat& other){
 
 Cat::~Cat(){
     std::cout << "Cat Deconstructor" << std::endl;
+}
+
+void Cat::makesound() const {
+    std::cout << "Meow...(Cat Making Sound {Meowing})" << std::endl;
 }
