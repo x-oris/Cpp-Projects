@@ -22,9 +22,9 @@ class ClapTrap
 
         //Setters && Getters
         std::string getName() const;
-        int gethitPts() const;
-        int getengPts() const;
-        int getattDmg() const;
+        unsigned int gethitPts() const;
+        unsigned int getengPts() const;
+        unsigned int getattDmg() const;
 
         void setName(std::string name);
         void sethitPts(unsigned int hitPts);
