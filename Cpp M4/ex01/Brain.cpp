@@ -1,8 +1,9 @@
 #include "Brain.hpp"
 
-Brain::Brain()
-{
+Brain::Brain(){
     std::cout << "Brain Constructor" << std::endl;
+    for (int x = 0; x < 100; x++)
+        ideas[x] = "";
 }
 
 Brain::Brain(const Brain& other){
@@ -17,4 +18,8 @@ Brain& Brain::operator=(const Brain& other){
             this->ideas[x] = other.ideas[x];
     }
     return *this;
+}
+
+Brain::~Brain(){
+    std::cout << "Brain Deconstructor Called" << std::endl;
 }

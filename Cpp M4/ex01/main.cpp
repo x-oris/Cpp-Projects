@@ -6,37 +6,17 @@
 
 int main()
 {
-    Animal Lion;
-    Lion.setType("King of the jungle");
+    Animal *animals[SIZE]; // why with no pointer it did not work ?
 
-    Dog Haskey;
-    Haskey.setType("North Dog");
-
-    Cat Chester;
-    Chester.setType("Suits Cat");
-
-    std::cout << "---------------- No Virtual Needed ----------------" << std::endl;
-    Lion.makesound();
-    Haskey.makesound();
-    Chester.makesound();
-    std::cout << "---------------- Virtual Needed v1 ----------------" << std::endl;
-    const Animal *x = new Dog();
-    std::cout << x->getType() << std::endl;
-    const Animal *y = new Cat();
-    std::cout << y->getType() << std::endl;
-
-    x->makesound();
-    y->makesound();
-    std::cout << "---------------- Virtual Needed v2 ----------------" << std::endl;
-    const WrongAnimal *w = new WrongCat();
-    std::cout << w->getType() << std::endl;
-
-    w->makesound();
-    std::cout << "Notice that the sound made, was the Base class sound, not the derived WrongCat's sound..." << std::endl;
-    std::cout << "------------------ Deconstructing -----------------" << std::endl; 
-    delete w;
-    delete x;
-    delete y;
+    std::cout << "--- Filling First Half With Dog Objects ---" << std::endl;
+    for (int x = 0; x < SIZE / 2; x++)
+        animals[x] = new Dog();
+    std::cout << "--- Filling Second Half With Cat Objects ---" << std::endl;
+    for (int x = SIZE / 2; x < SIZE; x++)
+        animals[x] = new Cat();
+    std::cout << "------------ Deletion Of Objects -----------" << std::endl;
+    for (int x = 0; x < SIZE; x++)
+        delete animals[x];
 
     return 0;
 }

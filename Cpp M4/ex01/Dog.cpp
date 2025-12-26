@@ -2,6 +2,7 @@
 
 Dog::Dog(){
     type = "Dog";
+    Br = new Brain();
     std::cout << "Dog Default Constructor" << std::endl;
 }
 
@@ -19,6 +20,7 @@ Dog& Dog::operator=(const Dog& other){
 
 Dog::~Dog(){
     std::cout << "Dog Deconstructor" << std::endl;
+    delete Br;
 }
 
 void Dog::makesound() const {

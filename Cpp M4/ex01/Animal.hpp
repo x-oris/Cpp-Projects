@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+#define SIZE 4
 
 class Animal
 {

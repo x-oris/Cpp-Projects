@@ -2,6 +2,7 @@
 
 Cat::Cat(){
     type = "Cat";
+    Br = new Brain();
     std::cout << "Cat Default Constructor" << std::endl;
 }
 
@@ -19,6 +20,7 @@ Cat& Cat::operator=(const Cat& other){
 
 Cat::~Cat(){
     std::cout << "Cat Deconstructor" << std::endl;
+    delete Br;
 }
 
 void Cat::makesound() const {
