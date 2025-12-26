@@ -9,3 +9,7 @@ int main()
     xoris.beRepaired(11);
     return 0;
 }
+
+/*
+    Add TEST FOR THE EXERCISES MAINS.
+*/

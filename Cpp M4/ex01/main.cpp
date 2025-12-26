@@ -6,7 +6,7 @@
 
 int main()
 {
-    Animal *animals[SIZE]; // why with no pointer it did not work ?
+    Animal *animals[SIZE]; // why with no pointer it did not work ? remove it to test.
 
     std::cout << "--- Filling First Half With Dog Objects ---" << std::endl;
     for (int x = 0; x < SIZE / 2; x++)
@@ -17,7 +17,6 @@ int main()
     std::cout << "------------ Deletion Of Objects -----------" << std::endl;
     for (int x = 0; x < SIZE; x++)
         delete animals[x];
-
 
     std::cout << "----- Testing If The Copying Is Deep Or Shallow -----" << std::endl;
     Dog basic;
