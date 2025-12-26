@@ -8,13 +8,19 @@ Cat::Cat(){
 
 Cat::Cat(const Cat& other){
     std::cout << "Cat Copy Constructor" << std::endl;
-    *this = other;
+    this->Br = new Brain();
+    *this->Br = *other.Br;
 }
 
 Cat& Cat::operator=(const Cat& other){
     std::cout << "Cat Assignement Operator" << std::endl;
     if (this != &other)
+    {
         this->setType(other.getType());
+        delete this->Br;
+        this->Br = new Brain();
+        *this->Br = *other.Br;
+    }
     return *this;
 }
 

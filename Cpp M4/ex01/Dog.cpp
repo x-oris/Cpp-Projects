@@ -8,13 +8,19 @@ Dog::Dog(){
 
 Dog::Dog(const Dog& other){
     std::cout << "Dog Copy Constructor" << std::endl;
-    *this = other;
+    this->Br = new Brain();
+    *this->Br = *other.Br;
 }
 
 Dog& Dog::operator=(const Dog& other){
     std::cout << "Dog Assignement Operator" << std::endl;
     if (this != &other)
+    {
         this->setType(other.getType());
+        delete this->Br;
+        this->Br = new Brain();
+        *this->Br = *other.Br;
+    }
     return *this;
 }
 
