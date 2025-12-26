@@ -6,17 +6,17 @@
 
 int main()
 {
-    // Animal *animals[SIZE]; // why with no pointer it did not work ?
+    Animal *animals[SIZE]; // why with no pointer it did not work ?
 
-    // std::cout << "--- Filling First Half With Dog Objects ---" << std::endl;
-    // for (int x = 0; x < SIZE / 2; x++)
-    //     animals[x] = new Dog();
-    // std::cout << "--- Filling Second Half With Cat Objects ---" << std::endl;
-    // for (int x = SIZE / 2; x < SIZE; x++)
-    //     animals[x] = new Cat();
-    // std::cout << "------------ Deletion Of Objects -----------" << std::endl;
-    // for (int x = 0; x < SIZE; x++)
-    //     delete animals[x];
+    std::cout << "--- Filling First Half With Dog Objects ---" << std::endl;
+    for (int x = 0; x < SIZE / 2; x++)
+        animals[x] = new Dog();
+    std::cout << "--- Filling Second Half With Cat Objects ---" << std::endl;
+    for (int x = SIZE / 2; x < SIZE; x++)
+        animals[x] = new Cat();
+    std::cout << "------------ Deletion Of Objects -----------" << std::endl;
+    for (int x = 0; x < SIZE; x++)
+        delete animals[x];
 
 
     std::cout << "----- Testing If The Copying Is Deep Or Shallow -----" << std::endl;
