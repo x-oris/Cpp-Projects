@@ -6,7 +6,7 @@ int main()
 {
     ClapTrap xoris("xoris");
     ScavTrap Keeper("GateKeeper");
-    FragTrap NonAllocFrag("NonAllocFrag");
+    FragTrap Frag("Frag");
 
     std::cout << "---------------------- Xoris Attacks ------------------" << std::endl;
     xoris.attack("SomeoneX");
@@ -14,10 +14,12 @@ int main()
     xoris.beRepaired(11);
     std::cout << "---------------------- GateKeeper Attacks ------------------" << std::endl;
     Keeper.attack("SomeoneX");
+    Keeper.beRepaired(55);
     Keeper.guardGate();
     std::cout << "---------------------- NonAllocFrag Attacks ------------------" << std::endl;
-    NonAllocFrag.attack("SomeoneY");
-    NonAllocFrag.highFivesGuyes();
+    Frag.attack("SomeoneY");
+    Frag.takeDamage(66);
+    Frag.highFivesGuyes();
     std::cout << "----------------------    *********    ------------------" << std::endl;
     return 0;
 }

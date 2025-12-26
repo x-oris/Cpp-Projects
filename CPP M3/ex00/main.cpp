@@ -5,11 +5,7 @@ int main()
     ClapTrap xoris("Xoris");
     
     xoris.attack("SomeoneX");
-    xoris.takeDamage(-1);
+    xoris.takeDamage(5);
     xoris.beRepaired(11);
     return 0;
 }
-
-/*
-    Add TEST FOR THE EXERCISES MAINS.
-*/
