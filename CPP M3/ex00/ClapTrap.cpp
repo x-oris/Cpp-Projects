@@ -40,13 +40,13 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 std::string ClapTrap::getName() const {
     return (this->Name);
 }
-int ClapTrap::gethitPts() const {
+unsigned int ClapTrap::gethitPts() const {
     return (this->hitPts);
 }
-int ClapTrap::getattDmg() const {
+unsigned int ClapTrap::getattDmg() const {
     return (this->attDmg);
 }
-int ClapTrap::getengPts() const {
+unsigned int ClapTrap::getengPts() const {
     return (this->engPts);
 }
 
