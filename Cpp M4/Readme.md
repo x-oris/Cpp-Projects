@@ -1,16 +1,16 @@
-### CPP Module 04
+## CPP Module 04
 ***
 
 To enter the world of this module, we need first to know & understand the overall types of polymorphism:
 
 ***
-#### 1. Static Polymorphism (Compile-Time Polymorphism) * (Ad-Hoc Polymorphism)
+### 1. Static Polymorphism (Compile-Time Polymorphism) * (Ad-Hoc Polymorphism)
 
 * ***Function Overloading***, same function name, difffernet parameter list, the polymorphism happens in the compile time, when it arrives into the runtime, the compiler has already changed the name of the polymorphic function using **Name Mangling**, by adding suffixes to the name, creating two seperate function, therefore the polymorphism has already dissolved at this point.
 
 * ***Operator Overloading***, Redifines how operators work for user-defined types, aslo resolved at compile time.
 
-#### 2. Dynamic Polymorphism (Runtime Polymorphism) * (SubType Polymorphism)
+### 2. Dynamic Polymorphism (Runtime Polymorphism) * (SubType Polymorphism)
 
 * Virtual functions, requires ```virtual``` keyword in the base class, usese base class pointer/refrence, implemented via **Vtable**, without the ```vitual``` keyword base version is called.
 
@@ -30,6 +30,150 @@ main:
 Animal* a = new Dog();
 a->speak();   // calls Dog::speak()
 ```
-
+***
 ### Deep dive into the concepts:
 
+#### 1. Function Overloading + Operator Overloading
+
+
+Let's say we have this code:
+```
+void foo(int x);
+void foo(double x);
+```
+The compiler rewrites the names:
+```
+_Z3fooi (foo(int x));
+_Z3food (foo(double));
+```
+No ambiguity at link time, each overload is a completely seperate function, this is called **Name Mangling**, this happens at the compile time.
+
+Through what's called **Overload Resolution**, the compiler take the final decision on what function should be called and executed, and the function name is hard wired into the generated code.
+The compiler follows this step to complete this behavior:
+
+* #### First | Build the candidate set:
+
+Collect all the functions named ``foo`` visible in the scope.
+Candidate set = { foo(int), foo(double), foo(long) }
+
+* #### Second | Build the candidate set:
+
+Here the compiler looks for which function should be called based on the parameter argument given, in our case,
+all the polymorphic function are viable & valide.
+
+```main: foo(10);```
+
+```foo(int)``` -> viable | ```foo(double)``` -> viable (int to double) | ```foo(long)``` -> viable (int to long)
+
+If a function has wrong number of paramters passed or requires impossible conversions, it is immediately discarded.
+
+* #### Third | Rank Conversions (Important):
+
+We can think of this as a ladder and the compiler will never climb down if it can stay higher.
+
+```
+Exact Match
+Promotion
+Standard Conversion
+User-Defined Conversion
+Ellipsis (...)
+```
+***
+#### Exact Match:
+```
+void foo(int);
+foo(10); -> Matched
+```
+
+No conversion, no ladder movement happens. It works the same with const & refrence binding.
+
+***Note***: Exact macth does not mean "identical in text", but no semantic converstion cost.
+***
+
+### Promotion:
+```
+char   → int
+short  → int
+float  → double
+bool   → int
+```
+
+```
+void foo(int);
+foo('a'); Char -> Int (Promotion)
+```
+
+CPU usually operates on ``int`` anyway, no loss of infomation.
+***
+### Standard Conversion:
+
+```
+int    → double
+int    → long
+T*     → const T*
+Derived* → Base*
+```
+
+```
+void foo(double);
+foo(10); Int to Double
+```
+***
+
+#### Promotion vs Standard
+
+```
+void foo(int);
+void foo(double);
+
+foo('a');
+```
+(Table by ChatGPT)
+| Overload    | Conversion |
+| ----------- | ---------- |
+| foo(int)    | Promotion  |
+| foo(double) | Standard   |
+
+```foo(int)``` gets choosed as the executed function.
+***
+#### User-Defined Converstion:
+
+```
+class A {
+    public:
+        A(int); (Constructor)
+        void foo(A);
+};
+
+foo(10);
+```
+
+Since A has a constructor, the compiler convert ``int`` to ``A``, foo(A) is viable, and it is selected assuming no better overload exists.
+Once the compiler has decided which function to use, it call the constructor creating a temporary **A**, by calling ```A::A(int)```.
+The conversion can work with refrence binding, ```void foo(const A&);```, but not without the ``const`` keyword, since we cannot bind a temporary to non-const reference.
+
+```
+class A {
+public:
+    A(int);
+    A(double);
+};
+
+foo(10);
+```
+
+In this case, foo(10) has an int, the compiler follows the exact match which is ```A(int)```, meanwhile ```A(double)``` is a standard conversion, therefore ```A(int)``` is chosen.
+
+***Note**: Only one user-defined conversion is allowed, you can not chain them unless explicitly done.
+
+```
+foo(B(A(10)));  Implicit chaining not allowed
+```
+***
+
+#### Ellipsis:
+
+```
+void foo(...);
+```
+This is the last ladder match, no type checking, used only if nothing else matches.
