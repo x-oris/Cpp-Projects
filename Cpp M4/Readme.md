@@ -33,7 +33,7 @@ a->speak();   // calls Dog::speak()
 ***
 ### Deep dive into the concepts:
 
-#### 1. Function Overloading + Operator Overloading
+### 1. Function Overloading + Operator Overloading
 
 
 Let's say we have this code:
@@ -164,11 +164,7 @@ foo(10);
 
 In this case, foo(10) has an int, the compiler follows the exact match which is ```A(int)```, meanwhile ```A(double)``` is a standard conversion, therefore ```A(int)``` is chosen.
 
-***Note**: Only one user-defined conversion is allowed, you can not chain them unless explicitly done.
-
-```
-foo(B(A(10)));  Implicit chaining not allowed
-```
+***Note***: Only one user-defined conversion is allowed, you can not chain them unless explicitly done.
 ***
 
 #### Ellipsis:
@@ -177,3 +173,39 @@ foo(B(A(10)));  Implicit chaining not allowed
 void foo(...);
 ```
 This is the last ladder match, no type checking, used only if nothing else matches.
+***
+
+### 2. Subtype Polymorphism (Runtime Polymorphism):
+
+In the subtype polymorphism we treat the derived objects as base objects and still we are allowed to use the derived behavior at runtime.
+
+Let's consider this example given by ChatGPT:
+
+```
+class Animal {
+public:
+    void speak() {
+        std::cout << "Animal sound\n";
+    }
+};
+
+class Dog : public Animal {
+public:
+    void speak() {
+        std::cout << "Woof\n";
+    }
+};
+
+Animal* a = new Dog();
+a->speak();   // calls Animal::speak()
+```
+
+When we invoke ```a->speak();```, the compiler uses the behavior of the base class ```Animal```, because the compiler decides which function to call at compile time based on the static type of the pointer ``(Animal*)``, the compiler literally hard-codes it into : ``Animal::speak(a);``.
+
+* ``Virtual`` keyword and its functionality:
+
+The keyword tells the compiler to not decide at the compile time, but to leave it till the runtime, and decide based on the actual object, this switches from **Static Binding** which is at the compile time to **Dynamic Binding** which is at the runtime.
+
+And now Ladies & Gentlemen, let's dive into the inner internals of this;
+### The Hidden : ``Vtable`` & ``Vptr``:
+
