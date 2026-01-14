@@ -1,0 +1,289 @@
+	.text
+	.file	"Zombie.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function __cxx_global_var_init
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  # @__cxx_global_var_init
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	movabsq	$_ZStL8__ioinit, %rdi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movabsq	$_ZNSt8ios_base4InitD1Ev, %rdi
+	movabsq	$_ZStL8__ioinit, %rsi
+	movabsq	$__dso_handle, %rdx
+	callq	__cxa_atexit
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end0:
+	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
+	.cfi_endproc
+                                        # -- End function
+	.text
+	.globl	_ZN6Zombie8announceEv           # -- Begin function _ZN6Zombie8announceEv
+	.p2align	4, 0x90
+	.type	_ZN6Zombie8announceEv,@function
+_ZN6Zombie8announceEv:                  # @_ZN6Zombie8announceEv
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$16, %rsp
+	movq	%rdi, -8(%rbp)
+	movq	-8(%rbp), %rsi
+	movabsq	$_ZSt4cout, %rdi
+	callq	_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE
+	movq	%rax, %rdi
+	movabsq	$.L.str, %rsi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movq	%rax, %rdi
+	movabsq	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %rsi
+	callq	_ZNSolsEPFRSoS_E
+	addq	$16, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end1:
+	.size	_ZN6Zombie8announceEv, .Lfunc_end1-_ZN6Zombie8announceEv
+	.cfi_endproc
+                                        # -- End function
+	.globl	_ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE # -- Begin function _ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.p2align	4, 0x90
+	.type	_ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE,@function
+_ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: # @_ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+.Lfunc_begin0:
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+	.cfi_lsda 3, .Lexception0
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$48, %rsp
+	movq	%rsi, -32(%rbp)                 # 8-byte Spill
+	movq	%rdi, -8(%rbp)
+	movq	-8(%rbp), %rdi
+	movq	%rdi, -40(%rbp)                 # 8-byte Spill
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev
+	movq	-40(%rbp), %rdi                 # 8-byte Reload
+	movq	-32(%rbp), %rsi                 # 8-byte Reload
+.Ltmp0:
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_
+                                        # kill: def $rcx killed $rax
+.Ltmp1:
+	jmp	.LBB2_1
+.LBB2_1:
+	addq	$48, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.LBB2_2:
+	.cfi_def_cfa %rbp, 16
+.Ltmp2:
+	movq	-40(%rbp), %rdi                 # 8-byte Reload
+	movq	%rax, %rcx
+	movl	%edx, %eax
+	movq	%rcx, -16(%rbp)
+	movl	%eax, -20(%rbp)
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+# %bb.3:
+	movq	-16(%rbp), %rdi
+	callq	_Unwind_Resume@PLT
+.Lfunc_end2:
+	.size	_ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, .Lfunc_end2-_ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.cfi_endproc
+	.section	.gcc_except_table,"a",@progbits
+	.p2align	2
+GCC_except_table2:
+.Lexception0:
+	.byte	255                             # @LPStart Encoding = omit
+	.byte	255                             # @TType Encoding = omit
+	.byte	1                               # Call site Encoding = uleb128
+	.uleb128 .Lcst_end0-.Lcst_begin0
+.Lcst_begin0:
+	.uleb128 .Ltmp0-.Lfunc_begin0           # >> Call Site 1 <<
+	.uleb128 .Ltmp1-.Ltmp0                  #   Call between .Ltmp0 and .Ltmp1
+	.uleb128 .Ltmp2-.Lfunc_begin0           #     jumps to .Ltmp2
+	.byte	0                               #   On action: cleanup
+	.uleb128 .Ltmp1-.Lfunc_begin0           # >> Call Site 2 <<
+	.uleb128 .Lfunc_end2-.Ltmp1             #   Call between .Ltmp1 and .Lfunc_end2
+	.byte	0                               #     has no landing pad
+	.byte	0                               #   On action: cleanup
+.Lcst_end0:
+	.p2align	2
+                                        # -- End function
+	.text
+	.globl	_ZN6ZombieD2Ev                  # -- Begin function _ZN6ZombieD2Ev
+	.p2align	4, 0x90
+	.type	_ZN6ZombieD2Ev,@function
+_ZN6ZombieD2Ev:                         # @_ZN6ZombieD2Ev
+.Lfunc_begin1:
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+	.cfi_lsda 3, .Lexception1
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$48, %rsp
+	movq	%rdi, -8(%rbp)
+	movq	-8(%rbp), %rsi
+	movq	%rsi, -40(%rbp)                 # 8-byte Spill
+.Ltmp3:
+	movl	$_ZSt4cout, %edi
+	callq	_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE
+	movq	%rax, %rcx
+.Ltmp4:
+	movq	%rcx, -32(%rbp)                 # 8-byte Spill
+	jmp	.LBB3_1
+.LBB3_1:
+.Ltmp5:
+	movq	-32(%rbp), %rdi                 # 8-byte Reload
+	movl	$.L.str.1, %esi
+	callq	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movq	%rax, %rcx
+.Ltmp6:
+	movq	%rcx, -48(%rbp)                 # 8-byte Spill
+	jmp	.LBB3_2
+.LBB3_2:
+.Ltmp7:
+	movq	-48(%rbp), %rdi                 # 8-byte Reload
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, %esi
+	callq	_ZNSolsEPFRSoS_E
+                                        # kill: def $rcx killed $rax
+.Ltmp8:
+	jmp	.LBB3_3
+.LBB3_3:
+	movq	-40(%rbp), %rdi                 # 8-byte Reload
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+	addq	$48, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.LBB3_4:
+	.cfi_def_cfa %rbp, 16
+.Ltmp9:
+	movq	-40(%rbp), %rdi                 # 8-byte Reload
+	movq	%rax, %rcx
+	movl	%edx, %eax
+	movq	%rcx, -16(%rbp)
+	movl	%eax, -20(%rbp)
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+# %bb.5:
+	movq	-16(%rbp), %rdi
+	callq	__clang_call_terminate
+.Lfunc_end3:
+	.size	_ZN6ZombieD2Ev, .Lfunc_end3-_ZN6ZombieD2Ev
+	.cfi_endproc
+	.section	.gcc_except_table,"a",@progbits
+	.p2align	2
+GCC_except_table3:
+.Lexception1:
+	.byte	255                             # @LPStart Encoding = omit
+	.byte	3                               # @TType Encoding = udata4
+	.uleb128 .Lttbase0-.Lttbaseref0
+.Lttbaseref0:
+	.byte	1                               # Call site Encoding = uleb128
+	.uleb128 .Lcst_end1-.Lcst_begin1
+.Lcst_begin1:
+	.uleb128 .Ltmp3-.Lfunc_begin1           # >> Call Site 1 <<
+	.uleb128 .Ltmp8-.Ltmp3                  #   Call between .Ltmp3 and .Ltmp8
+	.uleb128 .Ltmp9-.Lfunc_begin1           #     jumps to .Ltmp9
+	.byte	1                               #   On action: 1
+.Lcst_end1:
+	.byte	1                               # >> Action Record 1 <<
+                                        #   Catch TypeInfo 1
+	.byte	0                               #   No further actions
+	.p2align	2
+                                        # >> Catch TypeInfos <<
+	.long	0                               # TypeInfo 1
+.Lttbase0:
+	.p2align	2
+                                        # -- End function
+	.section	.text.__clang_call_terminate,"axG",@progbits,__clang_call_terminate,comdat
+	.hidden	__clang_call_terminate          # -- Begin function __clang_call_terminate
+	.weak	__clang_call_terminate
+	.p2align	4, 0x90
+	.type	__clang_call_terminate,@function
+__clang_call_terminate:                 # @__clang_call_terminate
+# %bb.0:
+	pushq	%rax
+	callq	__cxa_begin_catch
+	callq	_ZSt9terminatev
+.Lfunc_end4:
+	.size	__clang_call_terminate, .Lfunc_end4-__clang_call_terminate
+                                        # -- End function
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function _GLOBAL__sub_I_Zombie.cpp
+	.type	_GLOBAL__sub_I_Zombie.cpp,@function
+_GLOBAL__sub_I_Zombie.cpp:              # @_GLOBAL__sub_I_Zombie.cpp
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	callq	__cxx_global_var_init
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end5:
+	.size	_GLOBAL__sub_I_Zombie.cpp, .Lfunc_end5-_GLOBAL__sub_I_Zombie.cpp
+	.cfi_endproc
+                                        # -- End function
+	.type	_ZStL8__ioinit,@object          # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.type	.L.str,@object                  # @.str
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.L.str:
+	.asciz	": BraiiiiiiinnnzzzZ..."
+	.size	.L.str, 23
+
+	.type	.L.str.1,@object                # @.str.1
+.L.str.1:
+	.asciz	": Deconstructed..."
+	.size	.L.str.1, 19
+
+	.section	.init_array,"aw",@init_array
+	.p2align	3
+	.quad	_GLOBAL__sub_I_Zombie.cpp
+	.globl	_ZN6ZombieC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.type	_ZN6ZombieC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE,@function
+.set _ZN6ZombieC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, _ZN6ZombieC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.globl	_ZN6ZombieD1Ev
+	.type	_ZN6ZombieD1Ev,@function
+.set _ZN6ZombieD1Ev, _ZN6ZombieD2Ev
+	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
+	.section	".note.GNU-stack","",@progbits
+	.addrsig
+	.addrsig_sym __cxx_global_var_init
+	.addrsig_sym __cxa_atexit
+	.addrsig_sym _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	.addrsig_sym _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE
+	.addrsig_sym _ZNSolsEPFRSoS_E
+	.addrsig_sym _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	.addrsig_sym _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_
+	.addrsig_sym __gxx_personality_v0
+	.addrsig_sym __clang_call_terminate
+	.addrsig_sym __cxa_begin_catch
+	.addrsig_sym _ZSt9terminatev
+	.addrsig_sym _GLOBAL__sub_I_Zombie.cpp
+	.addrsig_sym _Unwind_Resume
+	.addrsig_sym _ZStL8__ioinit
+	.addrsig_sym __dso_handle
+	.addrsig_sym _ZSt4cout

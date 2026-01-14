@@ -1,0 +1,209 @@
+	.text
+	.file	"randomChump.cpp"
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function __cxx_global_var_init
+	.type	__cxx_global_var_init,@function
+__cxx_global_var_init:                  # @__cxx_global_var_init
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	movabsq	$_ZStL8__ioinit, %rdi
+	callq	_ZNSt8ios_base4InitC1Ev
+	movabsq	$_ZNSt8ios_base4InitD1Ev, %rdi
+	movabsq	$_ZStL8__ioinit, %rsi
+	movabsq	$__dso_handle, %rdx
+	callq	__cxa_atexit
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end0:
+	.size	__cxx_global_var_init, .Lfunc_end0-__cxx_global_var_init
+	.cfi_endproc
+                                        # -- End function
+	.text
+	.globl	_Z11randomChumpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE # -- Begin function _Z11randomChumpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.p2align	4, 0x90
+	.type	_Z11randomChumpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE,@function
+_Z11randomChumpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: # @_Z11randomChumpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+.Lfunc_begin0:
+	.cfi_startproc
+	.cfi_personality 3, __gxx_personality_v0
+	.cfi_lsda 3, .Lexception0
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$96, %rsp
+	movq	%rdi, %rsi
+	leaq	-64(%rbp), %rdi
+	movq	%rdi, -88(%rbp)                 # 8-byte Spill
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_
+	movq	-88(%rbp), %rsi                 # 8-byte Reload
+.Ltmp0:
+	leaq	-32(%rbp), %rdi
+	callq	_ZN6ZombieC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+.Ltmp1:
+	jmp	.LBB1_1
+.LBB1_1:
+	leaq	-64(%rbp), %rdi
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+.Ltmp5:
+	leaq	-32(%rbp), %rdi
+	callq	_ZN6Zombie8announceEv
+.Ltmp6:
+	jmp	.LBB1_2
+.LBB1_2:
+	leaq	-32(%rbp), %rdi
+	callq	_ZN6ZombieD1Ev
+	addq	$96, %rsp
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.LBB1_3:
+	.cfi_def_cfa %rbp, 16
+.Ltmp2:
+	movq	%rdx, %rcx
+	movq	%rax, %rsi
+                                        # kill: def $ecx killed $ecx killed $rcx
+	movq	%rsi, -72(%rbp)
+	movl	%ecx, -76(%rbp)
+.Ltmp3:
+	leaq	-64(%rbp), %rdi
+	callq	_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev
+.Ltmp4:
+	jmp	.LBB1_4
+.LBB1_4:
+	jmp	.LBB1_7
+.LBB1_5:
+.Ltmp7:
+	movq	%rdx, %rcx
+	movq	%rax, %rsi
+                                        # kill: def $ecx killed $ecx killed $rcx
+	movq	%rsi, -72(%rbp)
+	movl	%ecx, -76(%rbp)
+.Ltmp8:
+	leaq	-32(%rbp), %rdi
+	callq	_ZN6ZombieD1Ev
+.Ltmp9:
+	jmp	.LBB1_6
+.LBB1_6:
+	jmp	.LBB1_7
+.LBB1_7:
+	movq	-72(%rbp), %rdi
+	callq	_Unwind_Resume@PLT
+.LBB1_8:
+.Ltmp10:
+	movq	%rax, %rdi
+                                        # kill: def $eax killed $edx killed $rdx
+	callq	__clang_call_terminate
+.Lfunc_end1:
+	.size	_Z11randomChumpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, .Lfunc_end1-_Z11randomChumpNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+	.cfi_endproc
+	.section	.gcc_except_table,"a",@progbits
+	.p2align	2
+GCC_except_table1:
+.Lexception0:
+	.byte	255                             # @LPStart Encoding = omit
+	.byte	3                               # @TType Encoding = udata4
+	.uleb128 .Lttbase0-.Lttbaseref0
+.Lttbaseref0:
+	.byte	1                               # Call site Encoding = uleb128
+	.uleb128 .Lcst_end0-.Lcst_begin0
+.Lcst_begin0:
+	.uleb128 .Lfunc_begin0-.Lfunc_begin0    # >> Call Site 1 <<
+	.uleb128 .Ltmp0-.Lfunc_begin0           #   Call between .Lfunc_begin0 and .Ltmp0
+	.byte	0                               #     has no landing pad
+	.byte	0                               #   On action: cleanup
+	.uleb128 .Ltmp0-.Lfunc_begin0           # >> Call Site 2 <<
+	.uleb128 .Ltmp1-.Ltmp0                  #   Call between .Ltmp0 and .Ltmp1
+	.uleb128 .Ltmp2-.Lfunc_begin0           #     jumps to .Ltmp2
+	.byte	0                               #   On action: cleanup
+	.uleb128 .Ltmp1-.Lfunc_begin0           # >> Call Site 3 <<
+	.uleb128 .Ltmp5-.Ltmp1                  #   Call between .Ltmp1 and .Ltmp5
+	.byte	0                               #     has no landing pad
+	.byte	0                               #   On action: cleanup
+	.uleb128 .Ltmp5-.Lfunc_begin0           # >> Call Site 4 <<
+	.uleb128 .Ltmp6-.Ltmp5                  #   Call between .Ltmp5 and .Ltmp6
+	.uleb128 .Ltmp7-.Lfunc_begin0           #     jumps to .Ltmp7
+	.byte	0                               #   On action: cleanup
+	.uleb128 .Ltmp6-.Lfunc_begin0           # >> Call Site 5 <<
+	.uleb128 .Ltmp3-.Ltmp6                  #   Call between .Ltmp6 and .Ltmp3
+	.byte	0                               #     has no landing pad
+	.byte	0                               #   On action: cleanup
+	.uleb128 .Ltmp3-.Lfunc_begin0           # >> Call Site 6 <<
+	.uleb128 .Ltmp9-.Ltmp3                  #   Call between .Ltmp3 and .Ltmp9
+	.uleb128 .Ltmp10-.Lfunc_begin0          #     jumps to .Ltmp10
+	.byte	1                               #   On action: 1
+	.uleb128 .Ltmp9-.Lfunc_begin0           # >> Call Site 7 <<
+	.uleb128 .Lfunc_end1-.Ltmp9             #   Call between .Ltmp9 and .Lfunc_end1
+	.byte	0                               #     has no landing pad
+	.byte	0                               #   On action: cleanup
+.Lcst_end0:
+	.byte	1                               # >> Action Record 1 <<
+                                        #   Catch TypeInfo 1
+	.byte	0                               #   No further actions
+	.p2align	2
+                                        # >> Catch TypeInfos <<
+	.long	0                               # TypeInfo 1
+.Lttbase0:
+	.p2align	2
+                                        # -- End function
+	.section	.text.__clang_call_terminate,"axG",@progbits,__clang_call_terminate,comdat
+	.hidden	__clang_call_terminate          # -- Begin function __clang_call_terminate
+	.weak	__clang_call_terminate
+	.p2align	4, 0x90
+	.type	__clang_call_terminate,@function
+__clang_call_terminate:                 # @__clang_call_terminate
+# %bb.0:
+	pushq	%rax
+	callq	__cxa_begin_catch
+	callq	_ZSt9terminatev
+.Lfunc_end2:
+	.size	__clang_call_terminate, .Lfunc_end2-__clang_call_terminate
+                                        # -- End function
+	.section	.text.startup,"ax",@progbits
+	.p2align	4, 0x90                         # -- Begin function _GLOBAL__sub_I_randomChump.cpp
+	.type	_GLOBAL__sub_I_randomChump.cpp,@function
+_GLOBAL__sub_I_randomChump.cpp:         # @_GLOBAL__sub_I_randomChump.cpp
+	.cfi_startproc
+# %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	callq	__cxx_global_var_init
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.Lfunc_end3:
+	.size	_GLOBAL__sub_I_randomChump.cpp, .Lfunc_end3-_GLOBAL__sub_I_randomChump.cpp
+	.cfi_endproc
+                                        # -- End function
+	.type	_ZStL8__ioinit,@object          # @_ZStL8__ioinit
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.hidden	__dso_handle
+	.section	.init_array,"aw",@init_array
+	.p2align	3
+	.quad	_GLOBAL__sub_I_randomChump.cpp
+	.ident	"Ubuntu clang version 12.0.1-19ubuntu3"
+	.section	".note.GNU-stack","",@progbits
+	.addrsig
+	.addrsig_sym __cxx_global_var_init
+	.addrsig_sym __cxa_atexit
+	.addrsig_sym __gxx_personality_v0
+	.addrsig_sym __clang_call_terminate
+	.addrsig_sym __cxa_begin_catch
+	.addrsig_sym _ZSt9terminatev
+	.addrsig_sym _ZN6Zombie8announceEv
+	.addrsig_sym _GLOBAL__sub_I_randomChump.cpp
+	.addrsig_sym _Unwind_Resume
+	.addrsig_sym _ZStL8__ioinit
+	.addrsig_sym __dso_handle
