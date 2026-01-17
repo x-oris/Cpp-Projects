@@ -7,6 +7,8 @@
     yet no virtual dispatch happens, as you can see if you run the code, once the contructor of the animal class runs, the method of the base class
     runs.
     This happens because object is still at the base class construction, it still did not reach the final object construction.
+    Note it's safe to call the overidden function speak in the constructor & deconstructor of the derived class, since it's fully forned
+    and the Vptr is set.
 */
 
 class Animal
